@@ -1,0 +1,11 @@
+{
+  "name": "lawyer_mikus_sustar",
+  "version": "1.0.0",
+  "description": "lawyer website mikus sustar",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Tadej Birtic",
+  "license": "ISC"
+}
