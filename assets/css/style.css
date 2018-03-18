@@ -1,8 +1,37 @@
+@font-face {
+    font-family: 'MinionPro';
+    src: url('fonts/MinionPro-Bold.eot'); /* IE9 Compat Modes */
+    src: url('fonts/MinionPro-Bold.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+        url('fonts/MinionPro-Bold.woff') format('woff'), /* Modern Browsers */
+        url('fonts/MinionPro-Bold.ttf') format('truetype'), /* Safari, Android, iOS */
+        url('fonts/MinionPro-Bold.svg#MinionPro-Bold') format('svg'); /* Legacy iOS */
+    font-style: normal;
+    font-weight: bold;
+    text-rendering: optimizeLegibility;
+}
+
+@font-face {
+    font-family: 'MinionPro';
+    src: url('fonts/MinionPro-Regular.eot'); /* IE9 Compat Modes */
+    src: url('fonts/MinionPro-Regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+        url('fonts/MinionPro-Regular.woff') format('woff'), /* Modern Browsers */
+        url('fonts/MinionPro-Regular.ttf') format('truetype'), /* Safari, Android, iOS */
+        url('fonts/MinionPro-Regular.svg#MinionPro-Bold') format('svg'); /* Legacy iOS */
+    font-style: normal;
+    font-weight: normal;
+    text-rendering: optimizeLegibility;
+}
+
+.anchor{
+    display: block;
+    visibility: hidden;
+  }
+
 html,
 body {
     height: 100vh;
     margin: 0;
-    font-family: 'Crimson Text', serif;
+    font-family: 'MinionPro';
     overflow: hidden;
     box-sizing: padding-box;
 }
@@ -53,8 +82,16 @@ body {
     font-size: 0.75em;
 }
 
+.dib {
+    display: inline-block;
+}
+
+.pl-6 {
+    padding-left: 6px;
+}
+
 .heading-14 {
-    font-size: 1.4em;
+    font-size: 1.2em;
     font-weight: bold;
     color: #333333;
 }
@@ -140,6 +177,10 @@ section {
   .navbar .menu li a {
     text-decoration: none;
     color: white;
+  }
+
+  .selected {
+    font-weight: bold; 
   }
 
   .down-button-holder {
@@ -288,7 +329,7 @@ section {
     width: 100%;
   }
 
-  .description-lawyer p {
+  .description-lawyer {
     -webkit-hyphens: auto;
     -moz-hyphens: auto;
     -ms-hyphens: auto;
@@ -311,7 +352,7 @@ section {
   #section-profession {
     background: white;
     position: relative;
-    height: 435px;
+    height: auto;
   }
 
   .profession-holder {
@@ -324,6 +365,24 @@ section {
     margin: 0 auto;
     padding-left: 60px;
     box-sizing: border-box;
+  }
+
+  .profession-holder ul {
+      padding-left: 15px;
+      margin-top: 0;
+      font-size: 0.75em;
+  }
+
+  .profession-holder ul li {
+      list-style-type: none;
+  }
+
+  .profession-details-main {
+      cursor: pointer;
+  }
+
+  .profession-details-expanded {
+      display: none;
   }
 
   .line-profession {
@@ -347,6 +406,7 @@ section {
     font-size: 1.2em;
     align-items: flex-start;
     justify-content: center;
+    padding-bottom: 25px;
 }
 
   .left-column {
@@ -381,6 +441,8 @@ section {
 
   .links-holder a {
     color: #464646;
+    text-decoration: none;
+    font-size: 0.8em;
   }
 
   .column-1 {
@@ -409,7 +471,7 @@ section {
   .img-holder {
     background-repeat: no-repeat;
     background-size: cover;
-    height: 80%;
+    height: 100%;
   }
 
   .img-holder:nth-child(1) { 
@@ -436,7 +498,8 @@ section {
   
   .vertical-img:nth-child(2) {
     background-image: url("/assets/img/vhod.jpg");
-    background-size: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
     flex: 1;
   }
 
@@ -592,7 +655,7 @@ section {
     }
 
     #section-gallery {
-        height: 100vh;
+        height: auto;
     }
 
     /**** HAMBURGER ****/
@@ -643,7 +706,7 @@ section {
 
     .mobile-links-holder a {
         color: white;
-        text-decoration: none; /* no underline */
+        text-decoration: none;
       }
 
 

@@ -18,12 +18,31 @@ var sectionProfession = document.querySelector('#section-profession');
 var sectionLinks = document.querySelector('#section-links');
 var addPadding = document.querySelectorAll('.add-padding');
 var allSections = document.querySelectorAll('.add-section-padding');
+var anchor = document.querySelectorAll('.anchor');
+var detailsProfession = document.querySelectorAll('.profession-details-main');
+var contentWrapper = document.querySelector('.content-wrapper');
 
 window.addEventListener('resize', function() {
     fixedNavbar.style.width = fakeNavbar.offsetWidth + 'px';
 });
+window.addEventListener('scroll', function () {
+    console.log(window.pageYOffset, 'st');
+});
 
-console.log(clientWidth,  'sad');
+detailsProfession.forEach(function(element) {
+    element.addEventListener('click', function () {
+   
+      if (this.classList.contains('open')) {
+          this.classList.remove('open');
+          this.nextElementSibling.style.display = 'none';
+          this.childNodes[1].innerHTML = '<i class="fas fa-caret-right animated rotateIn"></i>';
+      } else {
+          this.classList.add('open');
+          this.nextElementSibling.style.display = 'block';
+          this.childNodes[1].innerHTML = '<i class="fas fa-caret-down animated rotateIn"></i>';
+      }
+    });
+});
 
 if (clientWidth > 768) {
     var url = window.location.href;
@@ -43,62 +62,34 @@ if (clientWidth > 768) {
         fixedNavbar.style.top = '0';
         fixedNavbar.style.left = '0';
     }
-    
-    var eventLedger = [];
-    
-    body.addEventListener('scroll', function(){
-        eventLedger.push('scroll');
-        console.log(eventLedger[eventLedger.length-2]);
-        if (eventLedger[eventLedger.length-2] !== 'click') {
-            allSectionsArr.forEach(function(element) {
-                element.style.paddingTop = '5px';
+
+    //setting hight to all elements with class .anchor
+    anchor.forEach(function (element) {
+        element.style.height = fixedNavbar.offsetHeight + 5 + 'px';
+        element.style.marginTop = -fixedNavbar.offsetHeight + 5 + 'px';
+        console.log(element.style.marginTop,'kk');
+    });
+
+    addPadding.forEach(function (element) {
+        element.addEventListener('click', function () {
+            addPadding.forEach(function (element) {
+                if (element.classList.contains('selected')) {
+                    element.classList.remove('selected');
+                }
             });
-        }
+            this.classList.add('selected');
+        });
     });
     
-    var navbarLinks = [];
-    var allSectionsArr = [];
-    
-    allSections.forEach(function(element) {
-        allSectionsArr.push(element);
-    })
-    
-    addPadding.forEach(function(element) {
-        navbarLinks.push(element);
-    });
-    
-    
-    
-    navbarLinks.forEach(function(element){
-        element.addEventListener('click', function(){
-            eventLedger.push('click');
-            allSectionsArr.forEach(function(element) {
-                element.style.paddingTop = fixedNavbar.offsetHeight + 10 + 'px';
-                if (element == sectionPresentation) {
-                    element.style.height = '610px';
-                }
-
-                if (element == sectionProfession) {
-                    element.style.height = '435px';
-                }
-
-                if (element == sectionLinks) {
-                    element.style.height = '375px';
-                }
-
-            });
-        });  
-    });
-    
-    var affectedElement = [];
+   var affectedElement = [];
     console.log(affectedElement);
     
     changeOverflow.forEach(function(element) {
         affectedElement.push(element);
     });
-    // affectedElement.push(downButton);
+                             // affectedElement.push(downButton);
     
-    affectedElement.forEach(function(element) {
+    changeOverflow.forEach(function(element) {
         element.addEventListener('click', function() {
             sectionWelcome.style.display = 'none';
             body.style.overflow = 'scroll';
@@ -112,31 +103,21 @@ if (clientWidth > 768) {
             fixedNavbar.style.top = '0';
             fixedNavbar.style.left = '0';
         });
-    });
-    
-    // var fixedNavbarPosition = fixedNavbar.getBoundingClientRect().top;
-    
-    
-    /* window.addEventListener('scroll', function () {
-        var x = sectionWelcome.scrollTop;
-    
-        console.log(x);
-    }); */
-    
-    console.log(sectionContact.offsetHeight, 'oh');
+    }); 
+
     showInfoLara.addEventListener('click', function() {
         
         if (!showInfoLara.classList.contains('open')) {
             infoLara.style.display = 'block';
             showInfoLara.innerHTML = '<i class="fas fa-minus-circle heading-14 ml-5 animated rotateIn"></i>';
-            sectionContact.style.height = sectionContact.offsetHeight + 173 + 'px';
+            sectionContact.style.height = sectionContact.offsetHeight + 40 + 'px';
             console.log(sectionContact.offsetHeight, 'heh');
             infoLara.classList.remove('fadeOut');
             infoLara.classList.add('animated', 'fadeIn');
             showInfoLara.classList.add('open');
         } else  {
             showInfoLara.innerHTML = '<i class="fas fa-plus-circle heading-14 ml-5 animated rotateIn"></i>';
-            sectionContact.style.height = sectionContact.offsetHeight - 173 + 'px';
+            sectionContact.style.height = sectionContact.offsetHeight - 40 + 'px';
             infoLara.classList.add('animated', 'fadeOut');
             showInfoLara.classList.remove('open');
             infoLara.classList.remove('fadeIn');
