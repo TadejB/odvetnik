@@ -32,9 +32,13 @@ body {
     height: 100vh;
     margin: 0;
     font-family: 'MinionPro';
-    overflow: hidden;
+   /* overflow: hidden; */
     box-sizing: padding-box;
 }
+
+.content-wrapper {
+    display: none;
+} 
 
 /***** Google MAPS *****/
 
@@ -112,23 +116,13 @@ section {
     height: 100vh;
 }
 
-.test {
-    width: 100%;
-    height: 10%;
-    background-color: pink;
-    top: 2vh;
-    left: 0vw;
-    position: fixed;
-
-}
-
 /***** SECTION WELCOME *****/
 
 #section-welcome {
     background-image: url("/assets/img/homepage.jpg");
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: 0 -120px;
+    background-position: 0 -100px;
     position: relative;
   }
 
@@ -200,14 +194,13 @@ section {
 
   /************ SECTION CONTACT ************/
 
-  section:nth-child(2) {
+  /* section:nth-child(2) {
     background: white;
     position: relative;
     padding-bottom: 10px;
     height: 780px;
     box-sizing: border-box;
-
-  }
+  } */
 
   .line-contact {
     position: absolute;
@@ -421,7 +414,7 @@ section {
 
   #section-links {
     background: white;
-    height: 375px;
+    height: 270px;
   }
 
   .links-holder {
@@ -433,7 +426,7 @@ section {
       justify-content: space-between;
       align-items: flex-start;
       height: 100%;
-      padding-top: 105px;
+      padding-top: 70px;
       padding-left: 60px;
       padding-right: 60px;
       box-sizing: border-box;
@@ -515,9 +508,12 @@ section {
 
   @media (max-width: 768px) {
     body {
-        overflow-y: scroll;
         -webkit-overflow-scrolling: touch;
-        min-height: 100%;
+        height: 100%;
+    }
+
+    .content-wrapper {
+        display: block;
     }
 
     .heading-14 {
@@ -592,7 +588,7 @@ section {
         display: none;
     }
     #section-presentation {
-        height: 1110px;
+        height: 1063px;
     }
 
     .presentation-holder {
@@ -611,8 +607,6 @@ section {
         margin-left: 0;
     }
 
-
-
     .inline-block-mobile {
         display: inline-block;
     }
@@ -626,6 +620,10 @@ section {
         font-size: 0.85em;
     }
 
+    .presentation-sabina {
+        border-bottom: 2px solid rgba(0, 0, 0, 0.65);
+    }
+
     .gallery-holder {
         box-sizing: border-box;
         width: 100%;
@@ -636,7 +634,6 @@ section {
 
       .profession-holder,
       .links-holder {
-          border-top: 2px solid rgba(0, 0, 0, 0.65);
           font-size: 0.85em;
           padding-top: 25px;
           padding-bottom: 25px;
@@ -645,8 +642,13 @@ section {
           padding-left: 18px;
       }
 
+      .links-holder {
+          padding-top: 0;
+      }
+
       .profession-columns-holder {
           display: block;
+          border-bottom: 2px solid rgba(0, 0, 0, 0.65);
       }
 
       .left-column,
@@ -655,8 +657,44 @@ section {
     }
 
     #section-gallery {
-        height: auto;
+        height: 300px;
     }
+
+    .gallery-holder {
+        display: none
+    }
+
+    .mobile-gallery-holder {
+        width: 100%;
+        height: 100%;
+    }
+
+    .mobile-img-holder {
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 100%;
+      }
+
+      .mobile-img-holder:nth-child(1) {
+        background-image: url('/assets/img/zunanjost-2.jpg');
+        flex: 1;
+    }
+      .mobile-img-holder:nth-child(2) { 
+        background-image: url("/assets/img/vhodna-vrata.jpg");
+        flex: 1;
+      }
+    
+      .mobile-img-holder:nth-child(3) {
+        background-image: url("/assets/img/vhod.jpg");
+        flex: 1;
+      }
+    
+      .mobile-img-holder:nth-child(4) {
+        background-image: url("/assets/img/IMG_2458.jpg");
+        flex: 1;
+      }
+
+      
 
     /**** HAMBURGER ****/
     .mobile-section {
@@ -664,16 +702,17 @@ section {
         display: block;
         width: 100%;
         height: 100vh;
-        background-color: rgba(0, 0, 0, 0.85);
+        background-color: rgba(0, 0, 0, 0.95);
         display: none;
+        z-index: 8999;
     }
 
     #mobile-hamburger {
         padding: 16px;
         position: absolute;
-        color: red;
+        color: white;
         right: 0;
-        display: block;
+        display: inline-block;
     }
 
     #mobile-menu {
@@ -681,7 +720,7 @@ section {
         height: 12vh;
         width: 100%;
         z-index: 9000;
-        background-image: url("/assets/img/homepage.jpg");
+        /* background-image: url("/assets/img/homepage.jpg"); */
         background-repeat: no-repeat;
         background-size: cover;
         background-position: 0 -150px; 
@@ -708,6 +747,16 @@ section {
         color: white;
         text-decoration: none;
       }
+
+    #mobile-menu-logo {
+        background-size: cover;
+        height: 86%;
+        width: 99px;
+        display: inline-block;
+        position: absolute;
+        left:36%;
+        top: 2px;
+    }
 
 
   }
